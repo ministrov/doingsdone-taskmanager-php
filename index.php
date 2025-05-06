@@ -6,6 +6,47 @@
  * @return $data
  */
 
+
+$projects = ["Входящие", "Учеба", "Работа", "Домашние дела", "Авто"];
+$tasks = [
+    [
+        "task" => "Собеседование в IT компании",
+        "timestamp" => "01.12.2019",
+        "category" => "Работа",
+        "done" => false
+    ],
+    [
+        "task" => "Выполнить тестовое задание",
+        "timestamp" => "25.12.2019",
+        "category" => "Работа",
+        "done" => false
+    ],
+    [
+        "task" => "Сделать задание первого раздела",
+        "timestamp" => "21.12.2019",
+        "category" => "Учеба",
+        "done" => true
+    ],
+    [
+        "task" => "Встреча с другом",
+        "timestamp" => "22.12.2019",
+        "category" => "Входящие",
+        "done" => false
+    ],
+    [
+        "task" => "Купить корм для кота",
+        "timestamp" => null,
+        "category" => "Домашние дела",
+        "done" => false
+    ],
+    [
+        "task" => "Заказать пиццу",
+        "timestamp" => null,
+        "category" => "Домашние дела",
+        "done" => false
+    ],
+];
+
 function console_log($data)
 {
     echo '<script>';
@@ -16,6 +57,8 @@ function console_log($data)
 $show_complete_tasks = rand(0, 1);
 
 console_log($show_complete_tasks);
+
+console_log($projects);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
