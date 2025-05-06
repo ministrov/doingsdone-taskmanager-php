@@ -1,5 +1,8 @@
 <?php
 require_once("helpers.php");
+
+$myName = "A" . "nton";
+console_log($myName);
 // показывать или нет выполненные задачи
 $show_complete_tasks = rand(0, 1);
 

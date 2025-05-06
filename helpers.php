@@ -158,7 +158,8 @@ function console_log($data)
     echo '</script>';
 }
 
-function countTaskByProject(array $tasks, string $projectName) {
+function countTaskByProject(array $tasks, string $projectName)
+{
     $count = 0;
 
     foreach ($tasks as $task) {
