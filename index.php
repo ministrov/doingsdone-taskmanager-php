@@ -1,17 +1,5 @@
 <?php
-
-/**
- * Выводит вконсоль браузера то значение, что вы передали ф-ции
- * @param mixed $data
- * @return $data
- */
-
-function console_log($data)
-{
-    echo '<script>';
-    echo 'console.log(' . json_encode($data) . ')';
-    echo '</script>';
-}
+require_once('helpers.php');
 // показывать или нет выполненные задачи
 $show_complete_tasks = rand(0, 1);
 
@@ -56,64 +44,55 @@ console_log($show_complete_tasks);
                     <h2 class="content__side-heading">Проекты</h2>
 
                     <?php
-                        $projects = ["Входящие", "Учеба", "Работа", "Домашние дела", "Авто"];
+                    $projects = ["Входящие", "Учеба", "Работа", "Домашние дела", "Авто"];
 
-                        // $categories = [
-                        //     "boards" => "Доски и лыжи",
-                        //     "attachment" => "Крепления",
-                        //     "boots" => "Ботинки",
-                        //     "clothing" => "Одежда",
-                        //     "tools" => "Инструменты",
-                        //     "other" => "Разное"
-                        //   ];
-
-                        $tasks = [
-                            [
-                                "task" => "Собеседование в IT компании",
-                                "timestamp" => "01.12.2019",
-                                "category" => "Работа",
-                                "done" => false
-                            ],
-                            [
-                                "task" => "Выполнить тестовое задание",
-                                "timestamp" => "25.12.2019",
-                                "category" => "Работа",
-                                "done" => false
-                            ],
-                            [
-                                "task" => "Сделать задание первого раздела",
-                                "timestamp" => "21.12.2019",
-                                "category" => "Учеба",
-                                "done" => true
-                            ],
-                            [
-                                "task" => "Встреча с другом",
-                                "timestamp" => "22.12.2019",
-                                "category" => "Входящие",
-                                "done" => false
-                            ],
-                            [
-                                "task" => "Купить корм для кота",
-                                "timestamp" => null,
-                                "category" => "Домашние дела",
-                                "done" => false
-                            ],
-                            [
-                                "task" => "Заказать пиццу",
-                                "timestamp" => null,
-                                "category" => "Домашние дела",
-                                "done" => false
-                            ],
-                        ];
+                    $tasks = [
+                        [
+                            "task" => "Собеседование в IT компании",
+                            "timestamp" => "01.12.2019",
+                            "category" => "Работа",
+                            "done" => false
+                        ],
+                        [
+                            "task" => "Выполнить тестовое задание",
+                            "timestamp" => "25.12.2019",
+                            "category" => "Работа",
+                            "done" => false
+                        ],
+                        [
+                            "task" => "Сделать задание первого раздела",
+                            "timestamp" => "21.12.2019",
+                            "category" => "Учеба",
+                            "done" => true
+                        ],
+                        [
+                            "task" => "Встреча с другом",
+                            "timestamp" => "22.12.2019",
+                            "category" => "Входящие",
+                            "done" => false
+                        ],
+                        [
+                            "task" => "Купить корм для кота",
+                            "timestamp" => null,
+                            "category" => "Домашние дела",
+                            "done" => false
+                        ],
+                        [
+                            "task" => "Заказать пиццу",
+                            "timestamp" => null,
+                            "category" => "Домашние дела",
+                            "done" => false
+                        ],
+                    ];
                     ?>
 
                     <nav class="main-navigation">
                         <ul class="main-navigation__list">
                             <?php foreach ($projects as $project): ?>
-                            <li class="main-navigation__list-item">
-                                <a class="main-navigation__list-item-link" href="#"><?= $project; ?></a>
-                                <span class="main-navigation__list-item-count">0</span>
-                            </li>
+                                <li class="main-navigation__list-item">
+                                    <a class="main-navigation__list-item-link" href="#"><?= $project; ?></a>
+                                    <span class="main-navigation__list-item-count">0</span>
+                                </li>
                             <?php endforeach; ?>
                         </ul>
                     </nav>
