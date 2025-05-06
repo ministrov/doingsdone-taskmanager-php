@@ -1,5 +1,5 @@
 <?php
-require_once('helpers.php');
+require_once("helpers.php");
 // показывать или нет выполненные задачи
 $show_complete_tasks = rand(0, 1);
 
@@ -126,20 +126,25 @@ console_log($show_complete_tasks);
                     </div>
 
                     <table class="tasks">
-                        <tr class="tasks__item task">
-                            <td class="task__select">
-                                <label class="checkbox task__checkbox">
-                                    <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1">
-                                    <span class="checkbox__text">Сделать главную страницу Дела в порядке</span>
-                                </label>
-                            </td>
+                        <?php foreach ($tasks as $key => $task): ?>
+                            <?php if ($task["done"] && !$show_complete_tasks): continue; endif; ?>
+                            <tr class="tasks__item task <?php if ($task["done"]): ?>task--completed<?php endif; ?>">
+                                <td class="task__select">
+                                    <label class="checkbox task__checkbox">
+                                        <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1" <?php if ($task["done"]): ?>checked<?php endif; ?>>
+                                        <span class="checkbox__text"><?= $task["category"]; ?></span>
+                                    </label>
+                                </td>
 
-                            <td class="task__file">
-                                <a class="download-link" href="#">Home.psd</a>
-                            </td>
+                                <?php if ($show_complete_tasks > 0): ?>
+                                    <td class="task__file">
+                                        <a class="download-link" href="#">Home.psd</a>
+                                    </td>
+                                <?php endif; ?>
 
-                            <td class="task__date"></td>
-                        </tr>
+                                <td class="task__date"><?= $task["timestamp"] ?? "10.10.2019"; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
                         <!--показывать следующий тег <tr/>, если переменная $show_complete_tasks равна единице-->
                         <?php if ($show_complete_tasks > 0): ?>
                             <tr class="tasks__item task task--completed">
