@@ -157,3 +157,16 @@ function console_log($data)
     echo 'console.log(' . json_encode($data) . ')';
     echo '</script>';
 }
+
+function countTaskByProject(array $tasks, string $projectName)
+{
+    $count = 0;
+
+    foreach ($tasks as $task) {
+        if ($task["category"] === $projectName) {
+            $count++;
+        }
+    }
+
+    return $count;
+}
