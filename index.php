@@ -91,7 +91,9 @@ console_log($show_complete_tasks);
                             <?php foreach ($projects as $project): ?>
                                 <li class="main-navigation__list-item">
                                     <a class="main-navigation__list-item-link" href="#"><?= $project; ?></a>
-                                    <span class="main-navigation__list-item-count">0</span>
+                                    <span class="main-navigation__list-item-count">
+                                        <?= countTaskByProject($tasks, $project) ?? 0; ?>
+                                    </span>
                                 </li>
                             <?php endforeach; ?>
                         </ul>
@@ -127,7 +129,8 @@ console_log($show_complete_tasks);
 
                     <table class="tasks">
                         <?php foreach ($tasks as $key => $task): ?>
-                            <?php if ($task["done"] && !$show_complete_tasks): continue; endif; ?>
+                            <?php if ($task["done"] && !$show_complete_tasks): continue;
+                            endif; ?>
                             <tr class="tasks__item task <?php if ($task["done"]): ?>task--completed<?php endif; ?>">
                                 <td class="task__select">
                                     <label class="checkbox task__checkbox">
