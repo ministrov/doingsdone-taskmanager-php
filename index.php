@@ -1,10 +1,12 @@
 <?php
 require_once("helpers.php");
 
-$myName = "A" . "nton";
-console_log($myName);
+// $myName = "A" . "nton";
+// console_log($myName);
 // показывать или нет выполненные задачи
 $show_complete_tasks = rand(0, 1);
+
+console_log(100000);
 
 console_log($show_complete_tasks);
 ?>
