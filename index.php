@@ -3,27 +3,27 @@ require_once("helpers.php");
 
 
 
-$cur_date = date_create("now");
-$next_month = date_create("first day of next month");
+// $cur_date = date_create("now");
+// $next_month = date_create("first day of next month");
 
-console_log($cur_date);
-console_log($next_month);
+// console_log($cur_date);
+// console_log($next_month);
 
-// получает экземпляр временного промежутка на основе разницы между двумя датами
-$diff = date_diff($cur_date, $next_month);
+// // получает экземпляр временного промежутка на основе разницы между двумя датами
+// $diff = date_diff($cur_date, $next_month);
 
-// Приводит временной интервал к нужному формату
-$days_count = date_interval_format($diff, "%d");
+// // Приводит временной интервал к нужному формату
+// $days_count = date_interval_format($diff, "%d");
 
-print("До начала следующего месяца осталось $days_count дней");
+// print("До начала следующего месяца осталось $days_count дней");
 
-echo "До начала следующего месяца осталось $days_count дней";
+// echo "До начала следующего месяца осталось $days_count дней";
 
-console_log($days_count);
-// показывать или нет выполненные задачи
+// console_log($days_count);
+// // показывать или нет выполненные задачи
 $show_complete_tasks = rand(0, 1);
 
-console_log(100000);
+console_log(formats_num(100000));
 
 console_log($show_complete_tasks);
 ?>
