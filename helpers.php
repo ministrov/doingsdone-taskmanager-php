@@ -180,3 +180,7 @@ function formats_num($num)
     }
     return $num . " " . "₽";
 }
+
+function safe_html($value) {
+    return htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8');
+}
