@@ -1,6 +1,22 @@
 <?php
 require_once("helpers.php");
 
+$projects2 = ["Входящие", "Учеба", "Работа", "Домашние дела", "Авто"];
+
+
+$cat = [
+    "name" => "Barsik",
+    "color" => "Yellow",
+    "weight" => 12,
+    "tail" => "short"
+];
+
+console_log(var_dump($cat));
+// list($one, $two, $three) = $projects2;
+
+// console_log($one);
+// console_log($two);
+// console_log($three);
 
 
 // $cur_date = date_create("now");
