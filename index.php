@@ -11,3 +11,9 @@ $page_content = include_template("main.php", [
     "show_complete_tasks" => $show_complete_tasks
 ]);
 
+$layout_content = include_template("layout.php", [
+    "title" => "Главная",
+    "content" => $page_content
+]);
+
+print($layout_content);
