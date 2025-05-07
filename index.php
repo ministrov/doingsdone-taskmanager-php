@@ -1,17 +1,16 @@
 <?php
 require_once("helpers.php");
+require_once("data.php");
 
-$projects2 = ["Входящие", "Учеба", "Работа", "Домашние дела", "Авто"];
 
+// $num = count($cat);
 
-$cat = [
-    "name" => "Barsik",
-    "color" => "Yellow",
-    "weight" => 12,
-    "tail" => "short"
-];
+// for ($i = 0; $i < $num; $i++) {
+//     print("He: $i");
+// }
 
-console_log(var_dump($cat));
+// console_log($num);
+
 // list($one, $two, $three) = $projects2;
 
 // console_log($one);
@@ -80,49 +79,6 @@ console_log($show_complete_tasks);
             <div class="content">
                 <section class="content__side">
                     <h2 class="content__side-heading">Проекты</h2>
-
-                    <?php
-                    $projects = ["Входящие", "Учеба", "Работа", "Домашние дела", "Авто"];
-
-                    $tasks = [
-                        [
-                            "task" => "Собеседование в IT компании",
-                            "timestamp" => "01.12.2019",
-                            "category" => "Работа",
-                            "done" => false
-                        ],
-                        [
-                            "task" => "Выполнить тестовое задание",
-                            "timestamp" => "25.12.2019",
-                            "category" => "Работа",
-                            "done" => false
-                        ],
-                        [
-                            "task" => "Сделать задание первого раздела",
-                            "timestamp" => "21.12.2019",
-                            "category" => "Учеба",
-                            "done" => true
-                        ],
-                        [
-                            "task" => "Встреча с другом",
-                            "timestamp" => "22.12.2019",
-                            "category" => "Входящие",
-                            "done" => false
-                        ],
-                        [
-                            "task" => "Купить корм для кота",
-                            "timestamp" => null,
-                            "category" => "Домашние дела",
-                            "done" => false
-                        ],
-                        [
-                            "task" => "Заказать пиццу",
-                            "timestamp" => null,
-                            "category" => "Домашние дела",
-                            "done" => false
-                        ],
-                    ];
-                    ?>
 
                     <nav class="main-navigation">
                         <ul class="main-navigation__list">
