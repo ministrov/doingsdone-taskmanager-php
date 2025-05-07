@@ -6,6 +6,9 @@ require_once("helpers.php");
 $cur_date = date_create("now");
 $next_month = date_create("first day of next month");
 
+console_log($cur_date);
+console_log($next_month);
+
 // получает экземпляр временного промежутка на основе разницы между двумя датами
 $diff = date_diff($cur_date, $next_month);
 
