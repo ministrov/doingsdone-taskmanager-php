@@ -142,6 +142,7 @@ function include_template($name, array $data = [])
 
     $result = ob_get_clean();
 
+    console_log($result);
     return $result;
 }
 
@@ -169,4 +170,13 @@ function countTaskByProject(array $tasks, string $projectName)
     }
 
     return $count;
+}
+
+function formats_num($num)
+{
+    $num = ceil($num);
+    if ($num >= 1000) {
+        $num = number_format($num, 0, '', ' ');
+    }
+    return $num . " " . "₽";
 }
