@@ -189,7 +189,6 @@ function get_time_left($date)
     $dueTimestamp = strtotime($date);
     $now = time();
 
-    console_log($dueTimestamp);
     return $dueTimestamp - $now;
 }
 
