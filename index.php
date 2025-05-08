@@ -2,14 +2,6 @@
 require_once("helpers.php");
 require_once("data.php");
 
-$num = count($cat);
-
-print_r($cat);
-
-var_dump($cat);
-
-console_log($num);
-
 $show_complete_tasks = rand(0, 1);
 
 $page_content = include_template("main.php", [
