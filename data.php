@@ -42,9 +42,9 @@ $tasks = [
 ];
 // $projects2 = ["Входящие", "Учеба", "Работа", "Домашние дела", "Авто"];
 
-// $cat = [
-//   "name" => "Barsik",
-//   "color" => "Yellow",
-//   "weight" => 12,
-//   "tail" => "short"
-// ];
+$cat = [
+  "name" => "Barsik",
+  "color" => "Yellow",
+  "weight" => 12,
+  "tail" => "short"
+];
