@@ -141,8 +141,6 @@ function include_template($name, array $data = [])
     require $name;
 
     $result = ob_get_clean();
-
-    // console_log($result);
     return $result;
 }
 
