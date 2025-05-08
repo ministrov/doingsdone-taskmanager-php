@@ -179,6 +179,28 @@ function formats_num($num)
     return $num . " " . "₽";
 }
 
-function safe_html($value) {
+function safe_html($value)
+{
     return htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8');
+}
+
+function get_time_left($date)
+{
+    $dueTimestamp = strtotime($date);
+    $now = time();
+    return $dueTimestamp - $now;
+}
+
+function get_time_left_human($date)
+{
+    $seconds = get_time_left($date);
+
+    if ($seconds <= 0) {
+        return 'Просрочено';
+    }
+
+    $hours = floor($seconds / 3600);
+    $minutes = floor(($seconds % 3600) / 60);
+
+    return "$hours ч. $minutes мин.";
 }

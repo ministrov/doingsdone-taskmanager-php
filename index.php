@@ -4,17 +4,17 @@ require_once("data.php");
 
 // $config = ['debug' => true, 'version' => '1.0'];
 
-$data = [
-    'username' => 'johndoe',
-    'email' => 'john@example.com',
-    'age' => 30
-];
+// $data = [
+//     'username' => 'johndoe',
+//     'email' => 'john@example.com',
+//     'age' => 30
+// ];
 
-extract($data);
+// extract($data);
 
-echo $username; // Outputs: johndoe
-echo $email;    // Outputs: john@example.com
-echo $age;
+// echo $username; // Outputs: johndoe
+// echo $email;    // Outputs: john@example.com
+// echo $age;
 
 $show_complete_tasks = rand(0, 1);
 
