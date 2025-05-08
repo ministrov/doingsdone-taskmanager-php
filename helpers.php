@@ -141,8 +141,6 @@ function include_template($name, array $data = [])
     require $name;
 
     $result = ob_get_clean();
-
-    console_log($result);
     return $result;
 }
 
@@ -180,3 +178,17 @@ function formats_num($num)
     }
     return $num . " " . "₽";
 }
+
+function safe_html($value)
+{
+    return htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8');
+}
+
+function get_time_left($date)
+{
+    $dueTimestamp = strtotime($date);
+    $now = time();
+
+    return $dueTimestamp - $now;
+}
+

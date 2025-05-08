@@ -1,7 +1,8 @@
 <?php
 require_once("helpers.php");
 require_once("data.php");
-require_once("data.php");
+
+console_log(get_time_left('19-04-19'));
 
 $show_complete_tasks = rand(0, 1);
 

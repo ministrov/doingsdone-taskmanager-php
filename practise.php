@@ -1,7 +1,7 @@
 <?php
 
+require_once("data");
 require_once("helpers.php");
-// $num = count($cat);
 
 // for ($i = 0; $i < $num; $i++) {
 //     print("He: $i");
