@@ -188,19 +188,8 @@ function get_time_left($date)
 {
     $dueTimestamp = strtotime($date);
     $now = time();
+
+    console_log($dueTimestamp);
     return $dueTimestamp - $now;
 }
 
-// function get_time_left_human($date)
-// {
-//     $seconds = get_time_left($date);
-
-//     if ($seconds <= 0) {
-//         return 'Просрочено';
-//     }
-
-//     $hours = floor($seconds / 3600);
-//     $minutes = floor(($seconds % 3600) / 60);
-
-//     return "$hours ч. $minutes мин.";
-// }

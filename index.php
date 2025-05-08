@@ -2,19 +2,7 @@
 require_once("helpers.php");
 require_once("data.php");
 
-// $config = ['debug' => true, 'version' => '1.0'];
-
-// $data = [
-//     'username' => 'johndoe',
-//     'email' => 'john@example.com',
-//     'age' => 30
-// ];
-
-// extract($data);
-
-// echo $username; // Outputs: johndoe
-// echo $email;    // Outputs: john@example.com
-// echo $age;
+console_log(get_time_left('19-04-19'));
 
 $show_complete_tasks = rand(0, 1);
 
