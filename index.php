@@ -2,7 +2,15 @@
 require_once("helpers.php");
 require_once("data.php");
 
-console_log(get_time_left('19-04-19'));
+// $cat = [
+//   "name" => "Barsik",
+//   "color" => "Yellow",
+//   "weight" => 12,
+//   "tail" => "short"
+// ];
+
+// console_log(isset($cat["name"]));
+// console_log(isset($cat["fodfod"]));
 
 $show_complete_tasks = rand(0, 1);
 

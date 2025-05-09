@@ -181,14 +181,20 @@ function formats_num($num)
 
 function safe_html($value)
 {
+    if ($value === null) {
+        return null; // Важно: не заменять null на ""
+    }
     return htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8');
 }
 
 function get_time_left($date)
 {
+    if ($date === null || $date === '') {
+        return 0;
+    }
     $dueTimestamp = strtotime($date);
     $now = time();
 
-    return $dueTimestamp - $now;
+    $result = $dueTimestamp - $now;
+    return $result;
 }
-
