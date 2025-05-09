@@ -2,7 +2,11 @@
 require_once("helpers.php");
 require_once("data.php");
 
-// console_log(get_time_left("10.05.2025"));
+var_dump($cat);
+
+$rand_key = array_rand($cites);
+
+console_log($rand_key);
 
 $show_complete_tasks = rand(0, 1);
 
