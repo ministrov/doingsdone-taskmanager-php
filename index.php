@@ -2,7 +2,7 @@
 require_once("helpers.php");
 require_once("data.php");
 
-console_log(get_time_left("10.05.2025"));
+// console_log(get_time_left("10.05.2025"));
 
 $show_complete_tasks = rand(0, 1);
 

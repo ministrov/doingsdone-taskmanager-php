@@ -138,6 +138,8 @@ function include_template($name, array $data = [])
 
     ob_start();
     extract($data);
+    // console_log(extract($data));
+    echo extract($data);
     require $name;
 
     $result = ob_get_clean();
@@ -187,15 +189,11 @@ function safe_html($value)
 function get_time_left($date)
 {
     if ($date === null || $date === '') {
-        // return $result = "10.10.2019";
         return 0;
     }
     $dueTimestamp = strtotime($date);
     $now = time();
 
     $result = $dueTimestamp - $now;
-
-    console_log($result);
-
     return $result;
 }
