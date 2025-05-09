@@ -62,7 +62,7 @@
             </td>
           <?php endif; ?>
 
-          <td class="task__date"><?= safe_html($task["timestamp"]) !== null ? $task["timestamp"] : $task["timestamp"] = '12.04.19'; ?></td>
+          <td class="task__date"><?= safe_html($task["timestamp"]) ?? "12.04.2019"; ?></td>
         </tr>
       <?php endforeach; ?>
       <!--показывать следующий тег <tr/>, если переменная $show_complete_tasks равна единице-->
@@ -74,6 +74,13 @@
               <span class="checkbox__text">Записаться на интенсив "Базовый PHP"</span>
             </label>
           </td>
+
+          <?php if ($show_complete_tasks > 0): ?>
+            <td class="task__file">
+              <a class="download-link" href="#">Home.psd</a>
+            </td>
+          <?php endif; ?>
+
           <td class="task__date">10.10.2019</td>
 
           <td class="task__controls">

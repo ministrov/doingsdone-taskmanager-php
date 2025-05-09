@@ -181,6 +181,9 @@ function formats_num($num)
 
 function safe_html($value)
 {
+    if ($value === null) {
+        return null; // Важно: не заменять null на ""
+    }
     return htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8');
 }
 
