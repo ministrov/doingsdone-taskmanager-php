@@ -186,9 +186,16 @@ function safe_html($value)
 
 function get_time_left($date)
 {
+    if ($date === null || $date === '') {
+        // return $result = "10.10.2019";
+        return 0;
+    }
     $dueTimestamp = strtotime($date);
     $now = time();
 
-    return $dueTimestamp - $now;
-}
+    $result = $dueTimestamp - $now;
 
+    console_log($result);
+
+    return $result;
+}

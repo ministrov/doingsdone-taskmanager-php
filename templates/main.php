@@ -47,7 +47,8 @@
       <?php foreach ($tasks as $key => $task): ?>
         <?php if ($task["done"] && !$show_complete_tasks): continue;
         endif; ?>
-        <tr class="tasks__item task <?php if ($task["done"]): ?>task--completed<?php endif; ?>">
+        <?php $timeLeft = get_time_left($task["timestamp"]); ?>
+        <tr class="tasks__item task <?php if ($task["done"]): ?>task--completed<?php endif; ?> <?php if ($timeLeft > 0 && $timeLeft <= 86400): ?>task--important<?php endif; ?>">
           <td class="task__select">
             <label class="checkbox task__checkbox">
               <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1" <?php if ($task["done"]): ?>checked<?php endif; ?>>
@@ -61,7 +62,7 @@
             </td>
           <?php endif; ?>
 
-          <td class="task__date"><?= safe_html($task["timestamp"]) ?? "10.10.2019"; ?></td>
+          <td class="task__date"><?= safe_html($task["timestamp"]); ?></td>
         </tr>
       <?php endforeach; ?>
       <!--показывать следующий тег <tr/>, если переменная $show_complete_tasks равна единице-->
