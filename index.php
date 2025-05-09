@@ -2,11 +2,15 @@
 require_once("helpers.php");
 require_once("data.php");
 
-var_dump($cat);
+$cat = [
+  "name" => "Barsik",
+  "color" => "Yellow",
+  "weight" => 12,
+  "tail" => "short"
+];
 
-$rand_key = array_rand($cites);
-
-console_log($rand_key);
+console_log(isset($cat["name"]));
+console_log(isset($cat["fodfod"]));
 
 $show_complete_tasks = rand(0, 1);
 

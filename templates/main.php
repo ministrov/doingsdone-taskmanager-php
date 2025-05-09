@@ -62,7 +62,7 @@
             </td>
           <?php endif; ?>
 
-          <td class="task__date"><?= safe_html($task["timestamp"]); ?></td>
+          <td class="task__date"><?= safe_html($task["timestamp"]) !== null ? $task["timestamp"] : $task["timestamp"] = '12.04.19'; ?></td>
         </tr>
       <?php endforeach; ?>
       <!--показывать следующий тег <tr/>, если переменная $show_complete_tasks равна единице-->
