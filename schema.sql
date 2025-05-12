@@ -1,11 +1,10 @@
 CREATE DATABASE doings_done;
 USE doings_done;
 
-CREATE TABLE project (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  title VARCHAR(128)
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  name VARCHAR(100) NOT NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  registration_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
-
-CREATE TABLE task ();
-
-CREATE TABLE user ();
