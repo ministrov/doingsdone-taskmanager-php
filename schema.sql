@@ -17,17 +17,15 @@ CREATE TABLE projects (
   FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
-CREATE TABLE tasks ();
-
--- CREATE TABLE tasks (
---   id SERIAL PRIMARY KEY,
---   title VARCHAR(255) NOT NULL,
---   status SMALLINT NOT NULL DEFAULT 0 CHECK (status IN (0, 1)),
---   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
---   deadline DATE,
---   file_path VARCHAR(512),
---   author_id INTEGER NOT NULL,
---   project_id INTEGER,
---   FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE,
---   FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE SET NULL
--- );
+CREATE TABLE tasks (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  status SMALLINT NOT NULL DEFAULT 0 CHECK (status IN (0, 1)),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  deadline DATE,
+  file_path VARCHAR(512),
+  author_id INTEGER NOT NULL,
+  project_id INTEGER,
+  FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE SET NULL
+);
