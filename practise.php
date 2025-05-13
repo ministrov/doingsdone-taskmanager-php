@@ -3,6 +3,13 @@
 require_once("data");
 require_once("helpers.php");
 
+return [
+  "host" => "",
+  "user" => "",
+  "password" => "",
+  "database" => ""
+];
+
 // for ($i = 0; $i < $num; $i++) {
 //     print("He: $i");
 // }
