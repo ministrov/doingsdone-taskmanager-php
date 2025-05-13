@@ -4,10 +4,10 @@ require_once("data");
 require_once("helpers.php");
 
 return [
-  "host" => "",
-  "user" => "",
-  "password" => "",
-  "database" => ""
+  "host" => "https://phpmyadmin/",
+  "user" => "child_new_admin_2",
+  "password" => "111",
+  "database" => "doings_done"
 ];
 
 // for ($i = 0; $i < $num; $i++) {
