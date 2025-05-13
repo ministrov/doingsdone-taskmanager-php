@@ -48,3 +48,108 @@ VALUES (1, 3, "Собеседование в IT компании", "2019-12-11")
        (2, 10, "Встретиться с друзьями", "2019-12-10"),
        (2, 7, "Купить новый ноутбук", "2019-12-10"),
        (2, 7, "Купить корм для собаки", "2019-12-06");
+
+/*
+ Добавить новый проект в таблицу projects для пользователя с user_id = 2
+*/
+
+INSERT INTO projects (user_id, name)
+VALUES (2, "Учёба");
+
+/*
+ Добавить новую задачу в таблицу tasks для пользователя с user_id = 2
+*/
+
+INSERT INTO tasks (user_id, project_id, title, deadline)
+VALUES (2, 10, "Записаться на курсы", "2019-12-03");
+
+/*
+ Получить все записи из таблицы users
+*/
+
+SELECT * FROM users;
+
+/*
+ Получить список из всех имён и паролей
+*/
+
+SELECT name, password FROM users;
+
+/*
+ Получит список из всех проектов в алфавитном порядке
+*/
+
+SELECT * FROM projects ORDER BY name ASC;
+
+/*
+ Получить список из всех проектов для одного пользователя
+*/
+
+SELECT name FROM projects
+WHERE user_id = 2;
+
+/*
+ Пометить задачу как выполненную
+ */
+UPDATE tasks SET status = 1
+WHERE title = "Заказать пиццу";
+
+/*
+ Обновить название задачи по её идентификатору
+ */
+UPDATE tasks SET title = "Сделать задание третьего раздела"
+WHERE id = 3;
+
+/*
+ Получить список из всех задач для одного проекта
+ */
+SELECT * FROM tasks
+LEFT JOIN projects ON projects.id = tasks.project_id
+WHERE projects.name LIKE "%авто%";
+
+SELECT * FROM tasks
+LEFT JOIN projects ON projects.id = tasks.project_id
+WHERE projects.id = 3;
+
+SELECT * FROM tasks
+LEFT JOIN projects ON projects.id = tasks.project_id
+WHERE projects.name LIKE "Учёба";
+
+SELECT tasks.user_id,
+       tasks.project_id,
+       projects.name AS project_name,
+       tasks.title AS task_title,
+       tasks.deadline,
+       tasks.status,
+       tasks.created_at
+FROM tasks
+LEFT JOIN projects ON projects.id = tasks.project_id
+WHERE projects.name = "Учёба";
+
+/*
+ Получить все записи из всех таблиц
+ */
+SELECT * FROM  tasks
+LEFT JOIN projects ON tasks.project_id = projects.id
+LEFT JOIN users ON tasks.user_id = users.id;
+
+SELECT * FROM  tasks t
+LEFT JOIN projects p ON t.project_id = p.id
+LEFT JOIN users u ON t.user_id = u.id;
+
+/*
+ Получить по всем пользователям данные о проектах и задачах в них
+ */
+SELECT
+    users.name AS user_name,
+    projects.name AS project_name,
+    tasks.*
+FROM tasks
+LEFT JOIN projects ON tasks.project_id = projects.id
+LEFT JOIN users ON tasks.user_id = users.id;
+
+/*
+ Пометить задачи как выполненные
+ */
+UPDATE tasks SET status = 1
+WHERE deadline = "2019-11-06";
