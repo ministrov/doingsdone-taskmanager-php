@@ -28,40 +28,40 @@ VALUES (1, "Входящие", "11-02-2019"),
  Добавление новых записей в таблицу tasks
 */
 
-INSERT INTO tasks (user_id, project_id, title, deadline)
-VALUES (1, 3, "Собеседование в IT компании", "2019-12-11"),
-       (1, 3, "Выполнить тестовое задание", "2019-12-09"),
-       (1, 2, "Сделать задание первого раздела", "2019-12-04"),
-       (1, 2, "Сделать задание второго раздела", "2019-12-07"),
-       (1, 1, "Встреча с другом", "2019-12-06"),
-       (1, 1, "Сходить в кино с друзьями", "2019-12-08"),
-       (1, 4, "Купить корм для кота", "2019-12-09"),
-       (1, 4, "Заказать пиццу", "2019-12-10"),
-       (1, 5, "Сменить резину", "2019-12-01"),
-       (1, 5, "Купить машину", "2020-01-14"),
-       (2, 8, "Сдать проект", "2019-12-09"),
-       (2, 8, "Выполнить тестовое задание", "2019-12-11"),
-       (2, 9, "Купить книгу по MySQL", "2019-12-06"),
-       (2, 7, "Снять квартиру", "2019-12-07"),
-       (2, 10, "Футбол", "2019-12-08"),
-       (2, 10, "Заказать пиццу", "2019-12-08"),
-       (2, 10, "Встретиться с друзьями", "2019-12-10"),
-       (2, 7, "Купить новый ноутбук", "2019-12-10"),
-       (2, 7, "Купить корм для собаки", "2019-12-06");
+INSERT INTO tasks (author_id, project_id, title, deadline, status, created_at, file_path)
+VALUES (1, 3, "Собеседование в IT компании", "2019-12-11", "done", "22-03-2020", "dfdfs"),
+       (1, 3, "Выполнить тестовое задание", "2019-12-09", "done", "22-03-2020", "dfdfs"),
+       (1, 2, "Сделать задание первого раздела", "2019-12-04", "done", "22-03-2020", "dfdfs"),
+       (1, 2, "Сделать задание второго раздела", "2019-12-07", "done", "22-03-2020", "dfdfs"),
+       (1, 1, "Встреча с другом", "2019-12-06", "done", "22-03-2020", "dfdfs"),
+       (1, 1, "Сходить в кино с друзьями", "2019-12-08", "done", "22-03-2020", "dfdfs"),
+       (1, 4, "Купить корм для кота", "2019-12-09", "done", "22-03-2020", "dfdfs"),
+       (1, 4, "Заказать пиццу", "2019-12-10", "done", "22-03-2020", "dfdfs"),
+       (1, 5, "Сменить резину", "2019-12-01", "done", "22-03-2020", "dfdfs"),
+       (1, 5, "Купить машину", "2020-01-14", "done", "22-03-2020", "dfdfs"),
+       (2, 8, "Сдать проект", "2019-12-09", "done", "22-03-2020", "dfdfs"),
+       (2, 8, "Выполнить тестовое задание", "2019-12-11", "done", "22-03-2020", "dfdfs"),
+       (2, 9, "Купить книгу по MySQL", "2019-12-06", "done", "22-03-2020", "dfdfs"),
+       (2, 7, "Снять квартиру", "2019-12-07", "done", "22-03-2020", "dfdfs"),
+       (2, 10, "Футбол", "2019-12-08", "done", "22-03-2020", "dfdfs"),
+       (2, 10, "Заказать пиццу", "2019-12-08", "done", "22-03-2020", "dfdfs"),
+       (2, 10, "Встретиться с друзьями", "2019-12-10", "done", "22-03-2020", "dfdfs"),
+       (2, 7, "Купить новый ноутбук", "2019-12-10", "done", "22-03-2020", "dfdfs"),
+       (2, 7, "Купить корм для собаки", "2019-12-06", "done", "22-03-2020", "dfdfs");
 
 /*
- Добавить новый проект в таблицу projects для пользователя с user_id = 2
+ Добавить новый проект в таблицу projects для пользователя с author_id = 2
 */
 
-INSERT INTO projects (user_id, name)
+INSERT INTO projects (author_id, name)
 VALUES (2, "Учёба");
 
 /*
- Добавить новую задачу в таблицу tasks для пользователя с user_id = 2
+ Добавить новую задачу в таблицу tasks для пользователя с author_id = 2
 */
 
-INSERT INTO tasks (user_id, project_id, title, deadline)
-VALUES (2, 10, "Записаться на курсы", "2019-12-03");
+INSERT INTO tasks (author_id, project_id, title, deadline, status, created_at, file_path)
+VALUES (2, 10, "Записаться на курсы", "2019-12-03", "done", "22-03-2020", "dfdfs");
 
 /*
  Получить все записи из таблицы users
@@ -73,7 +73,7 @@ SELECT * FROM users;
  Получить список из всех имён и паролей
 */
 
-SELECT name, password FROM users;
+SELECT name, password_hash FROM users;
 
 /*
  Получит список из всех проектов в алфавитном порядке
@@ -86,7 +86,7 @@ SELECT * FROM projects ORDER BY name ASC;
 */
 
 SELECT name FROM projects
-WHERE user_id = 2;
+WHERE author_id = 2;
 
 /*
  Пометить задачу как выполненную
@@ -115,7 +115,7 @@ SELECT * FROM tasks
 LEFT JOIN projects ON projects.id = tasks.project_id
 WHERE projects.name LIKE "Учёба";
 
-SELECT tasks.user_id,
+SELECT tasks.author_id,
        tasks.project_id,
        projects.name AS project_name,
        tasks.title AS task_title,
@@ -131,11 +131,11 @@ WHERE projects.name = "Учёба";
  */
 SELECT * FROM  tasks
 LEFT JOIN projects ON tasks.project_id = projects.id
-LEFT JOIN users ON tasks.user_id = users.id;
+LEFT JOIN users ON tasks.author_id = users.id;
 
 SELECT * FROM  tasks t
 LEFT JOIN projects p ON t.project_id = p.id
-LEFT JOIN users u ON t.user_id = u.id;
+LEFT JOIN users u ON t.author_id = u.id;
 
 /*
  Получить по всем пользователям данные о проектах и задачах в них
@@ -146,7 +146,7 @@ SELECT
     tasks.*
 FROM tasks
 LEFT JOIN projects ON tasks.project_id = projects.id
-LEFT JOIN users ON tasks.user_id = users.id;
+LEFT JOIN users ON tasks.author_id = users.id;
 
 /*
  Пометить задачи как выполненные
