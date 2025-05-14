@@ -11,6 +11,7 @@ $settings = [
 
 $connect = mysqli_connect($settings["host"], $settings["user"], $settings["password"], $settings["database"]);
 mysqli_set_charset($connect, "utf8");
+$sql = 'SELECT * FROM tasks';
 
 if (!$connect) {
   print("Ошибка подключения: " . mysqli_connect_error());
