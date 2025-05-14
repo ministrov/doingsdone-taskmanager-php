@@ -61,7 +61,7 @@ VALUES (2, "Учёба");
 */
 
 INSERT INTO tasks (author_id, project_id, title, deadline, status, created_at, file_path)
-VALUES (2, 10, "Записаться на курсы", "2019-12-03", "done", "22-03-2020", "dfdfs");
+VALUES (2, 10, "Записаться на курсы", "2019-12-03", 0, "22-03-2020", "dfdfs");
 
 /*
  Получить все записи из таблицы users
