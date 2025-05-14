@@ -1,31 +1,8 @@
 <?php
 require_once("helpers.php");
-require_once("data.php");
+// require_once("data.php");
 
-$settings = [
-  "host" => "MySQL-8.0",
-  "user" => "child_new_admin_2",
-  "password" => "111",
-  "database" => "doings_done"
-];
-
-$connect = mysqli_connect($settings["host"], $settings["user"], $settings["password"], $settings["database"]);
-mysqli_set_charset($connect, "utf8");
 $sql = "SELECT * FROM tasks";
-
-// if (!$connect) {
-//   print("Ошибка подключения: " . mysqli_connect_error());
-// } else {
-//   print("Соединение установлено");
-//   $result = mysqli_query($connect, $sql);
-
-//   $tasks = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-//   console_log($result);
-//   console_log($tasks);
-// }
-
-
 
 $show_complete_tasks = rand(0, 1);
 
