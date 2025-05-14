@@ -9,20 +9,16 @@ $settings = [
   "database" => "doings_done"
 ];
 
-$link = mysqli_connect($settings["host"], $settings["user"], $settings["password"], $settings["database"]);
-mysqli_set_charset($link, "utf8");
+$connect = mysqli_connect($settings["host"], $settings["user"], $settings["password"], $settings["database"]);
+mysqli_set_charset($connect, "utf8");
 
-console_log($link);
+if (!$connect) {
+  print("Ошибка подключения: " . mysqli_connect_error());
+} else {
+  print("Соединение установлено");
+}
 
-// $cat = [
-//   "name" => "Barsik",
-//   "color" => "Yellow",
-//   "weight" => 12,
-//   "tail" => "short"
-// ];
 
-// console_log(isset($cat["name"]));
-// console_log(isset($cat["fodfod"]));
 
 $show_complete_tasks = rand(0, 1);
 
