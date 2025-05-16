@@ -157,12 +157,11 @@ function console_log($data)
     echo '</script>';
 }
 
-function countTaskByProject(array $tasks, string $projectName)
+function tasks_count($task_count_all, $project_id)
 {
     $count = 0;
-
-    foreach ($tasks as $task) {
-        if ($task["category"] === $projectName) {
+    foreach ($task_count_all as $value) {
+        if ($value['id'] === $project_id) {
             $count++;
         }
     }

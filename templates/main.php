@@ -6,9 +6,9 @@
       <ul class="main-navigation__list">
         <?php foreach ($projects as $project): ?>
           <li class="main-navigation__list-item">
-            <a class="main-navigation__list-item-link" href="#"><?= $project; ?></a>
+            <a class="main-navigation__list-item-link" href="#"><?= htmlspecialchars($project["name"]) ?></a>
             <span class="main-navigation__list-item-count">
-              <?= countTaskByProject($tasks, $project) ?? 0; ?>
+              0
             </span>
           </li>
         <?php endforeach; ?>
@@ -45,14 +45,11 @@
 
     <table class="tasks">
       <?php foreach ($tasks as $key => $task): ?>
-        <?php if ($task["done"] && !$show_complete_tasks): continue;
-        endif; ?>
-        <?php $timeLeft = get_time_left($task["timestamp"]); ?>
-        <tr class="tasks__item task <?php if ($task["done"]): ?>task--completed<?php endif; ?> <?php if ($timeLeft > 0 && $timeLeft <= 86400): ?>task--important<?php endif; ?>">
+        <tr class="tasks__item task">
           <td class="task__select">
             <label class="checkbox task__checkbox">
-              <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1" <?php if ($task["done"]): ?>checked<?php endif; ?>>
-              <span class="checkbox__text"><?= safe_html($task["category"]); ?></span>
+              <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1">
+              <span class="checkbox__text"><?= safe_html($task["title"]); ?></span>
             </label>
           </td>
 
@@ -62,7 +59,7 @@
             </td>
           <?php endif; ?>
 
-          <td class="task__date"><?= safe_html($task["timestamp"]) ?? "12.04.2019"; ?></td>
+          <td class="task__date"><?= safe_html($task["deadline"]) ?? "12.04.2019"; ?></td>
         </tr>
       <?php endforeach; ?>
       <!--показывать следующий тег <tr/>, если переменная $show_complete_tasks равна единице-->
