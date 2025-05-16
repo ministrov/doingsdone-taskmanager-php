@@ -4,7 +4,16 @@
 
     <nav class="main-navigation">
       <ul class="main-navigation__list">
-        <?php foreach ($projects as $project): ?>
+        <?php
+        $uniqueProjects = array_reduce($projects, function ($carry, $item) {
+          if (!in_array($item['name'], array_column($carry, 'name'))) {
+            $carry[] = $item;
+          }
+          return $carry;
+        }, []);
+        ?>
+
+        <?php foreach ($uniqueProjects as $project): ?>
           <li class="main-navigation__list-item">
             <a class="main-navigation__list-item-link" href="#"><?= safe_html($project["name"]) ?></a>
             <span class="main-navigation__list-item-count">

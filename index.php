@@ -3,6 +3,10 @@ require_once("helpers.php");
 require_once("data.php");
 require_once("init.php");
 
+$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+
+console_log($lang);
+
 if (!$connect) {
   $error = mysqli_connect_error();
 } else {
@@ -16,7 +20,7 @@ if (!$connect) {
   }
 }
 
-console_log($projects);
+// console_log($projects);
 
 if (!$connect) {
   $error = mysqli_connect_error();
@@ -31,7 +35,7 @@ if (!$connect) {
   }
 }
 
-console_log($tasks);
+// console_log($tasks);
 
 $show_complete_tasks = rand(0, 1);
 

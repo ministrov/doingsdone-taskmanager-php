@@ -9,6 +9,8 @@ $settings = [
 
 $connect = mysqli_connect($settings["host"], $settings["user"], $settings["password"], $settings["database"]);
 
+console_log($connect);
+
 if (!$connect) {
   print("Ошибка подключения: " . mysqli_connect_error());
     die();

@@ -157,14 +157,20 @@ function console_log($data)
     echo '</script>';
 }
 
-function tasks_count($task_count_all, $project_id)
+function tasks_count($task_count_all, $projectName)
 {
     $count = 0;
     foreach ($task_count_all as $value) {
-        if ($value['id'] === $project_id) {
+        if ($value['name'] === $projectName) {
             $count++;
         }
     }
+
+
+    console_log($task_count_all);
+
+
+    console_log($count);
 
     return $count;
 }
