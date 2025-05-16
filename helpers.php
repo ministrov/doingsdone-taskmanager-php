@@ -157,18 +157,17 @@ function console_log($data)
     echo '</script>';
 }
 
-function countTaskByProject(array $tasks, string $projectName)
-{
-    $count = 0;
+// function tasks_count($task_count_all, $project_id)
+// {
+//     $count = 0;
+//     foreach ($task_count_all as $value) {
+//         if ($value['id'] === $project_id) {
+//             $count++;
+//         }
+//     }
 
-    foreach ($tasks as $task) {
-        if ($task["category"] === $projectName) {
-            $count++;
-        }
-    }
-
-    return $count;
-}
+//     return $count;
+// }
 
 function formats_num($num)
 {
