@@ -157,17 +157,17 @@ function console_log($data)
     echo '</script>';
 }
 
-// function tasks_count($task_count_all, $project_id)
-// {
-//     $count = 0;
-//     foreach ($task_count_all as $value) {
-//         if ($value['id'] === $project_id) {
-//             $count++;
-//         }
-//     }
+function tasks_count($task_count_all, $project_id)
+{
+    $count = 0;
+    foreach ($task_count_all as $value) {
+        if ($value['id'] === $project_id) {
+            $count++;
+        }
+    }
 
-//     return $count;
-// }
+    return $count;
+}
 
 function formats_num($num)
 {

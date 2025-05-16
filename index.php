@@ -31,6 +31,8 @@ if (!$connect) {
   }
 }
 
+console_log($tasks);
+
 $show_complete_tasks = rand(0, 1);
 
 $page_content = include_template("main.php", [
