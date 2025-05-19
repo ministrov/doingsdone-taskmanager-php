@@ -1,31 +1,35 @@
-CREATE DATABASE doings_done;
-USE doings_done;
+CREATE DATABASE doingsdone_db DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+USE doingsdone_db;
 
-CREATE TABLE users (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  email VARCHAR(255) NOT NULL UNIQUE,
-  name VARCHAR(100) NOT NULL,
-  password_hash VARCHAR(255) NOT NULL,
-  registration_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `users`
+(
+  `id`       INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name`     varchar(50)  NOT NULL,
+  `email`    varchar(50)  NOT NULL UNIQUE,
+  `password` varchar(150) NOT NULL,
+  `data`     TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE projects (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  author_id INTEGER NOT NULL,
-  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE
+CREATE TABLE `project`
+(
+  `id`      INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `title`   varchar(50) NOT NULL,
+  `user_id` INT
 );
 
-CREATE TABLE tasks (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  title VARCHAR(255) NOT NULL,
-  status SMALLINT NOT NULL DEFAULT 0 CHECK (status IN (0, 1)),
-  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  deadline DATE,
-  file_path VARCHAR(512),
-  author_id INTEGER NOT NULL,
-  project_id INTEGER,
-  FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE,
-  FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE SET NULL
+CREATE TABLE `task`
+(
+  `id`         INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name`       varchar(50) NOT NULL,
+  `user_id`    INT         NOT NULL,
+  `project_id` INT         NOT NULL,
+  `status`     TINYINT(1)  NOT NULL DEFAULT '0',
+  `deadline`   TIMESTAMP   NULL,
+  `file`       varchar(50),
+  `created_at` TIMESTAMP            DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE INDEX search_by_name on `users` (name);
+CREATE INDEX search_by_project on `project` (title);
+CREATE INDEX search_by_task on `task` (NAME);
+CREATE FULLTEXT INDEX task_search ON task (NAME);

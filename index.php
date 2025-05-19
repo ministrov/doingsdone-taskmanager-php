@@ -19,7 +19,7 @@ if (isset($_GET['task_id'])) {
 }
 
 //фильтр дат
-$date_filter = filter_input(INPUT_GET, 'filter', FILTER_SANITIZE_STRING);
+$date_filter = filter_input(INPUT_GET, 'filter', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $tasks = filter_tasks_by_date($tasks, $date_filter);
 
 $page_content = include_template('main.php', [
