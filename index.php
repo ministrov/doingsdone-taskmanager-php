@@ -1,4 +1,8 @@
+<?php echo "Hello, doingsdone.local!"; ?>
+
 <?php
+
+
 require_once("php/config.php");
 global $ROOT_DIRECTORY, $message_caption, $config, $template_path, $db_config, $error_caption, $error_default_message;
 
