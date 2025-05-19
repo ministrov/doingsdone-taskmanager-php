@@ -1,7 +1,7 @@
 <?php
 
-$ROOT_DIRECTORY = "/";
-// $ROOT_DIRECTORY = "/";
+$ROOT_DIRECTORY = "/doingsdone";
+//$ROOT_DIRECTORY = "";
 
 /**
  * Подключает шаблон, передает туда данные и возвращает итоговый HTML контент

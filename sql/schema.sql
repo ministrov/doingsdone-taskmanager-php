@@ -1,3 +1,6 @@
+DROP
+  DATABASE test_db;
+
 CREATE
   DATABASE test_db DEFAULT CHARACTER SET 'utf8' DEFAULT COLLATE 'utf8_general_ci';
 
@@ -42,7 +45,7 @@ CREATE TABLE dd_users
 
 /*
  FULLTEXT — это специальный вид индекса, поддерживаемый в MySQL.
- Добавим этот индекс нужным полям, чтобы организовать по ним полнотекстовый поиск
+ Добавим этот индекс нужным полям, чтобы организовать  по ним полнотекстовый поиск
  */
 CREATE
   FULLTEXT INDEX task_search ON dd_tasks (title);
