@@ -1,8 +1,8 @@
 <?php
 // Параметры для подключения к БД
 $db_config = [
-  "host" => "127.0.0.1",
-  "user" => "root",
-  "password" => "",
+  "host" => "MySQL-8.0",
+  "user" => "child_new_admin",
+  "password" => "111",
   "database" => "test_db"
 ];
