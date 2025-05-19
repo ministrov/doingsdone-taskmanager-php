@@ -224,7 +224,6 @@ function tasks_count($task_count_all, $project_id)
       $count++;
     }
   }
-
   return $count;
 }
 
