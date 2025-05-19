@@ -5,20 +5,15 @@
     <nav class="main-navigation">
       <ul class="main-navigation__list">
         <?php
-        $uniqueProjects = array_reduce($projects, function ($carry, $item) {
-          if (!in_array($item['name'], array_column($carry, 'name'))) {
-            $carry[] = $item;
-          }
-          return $carry;
-        }, []);
-        ?>
-
-        <?php foreach ($uniqueProjects as $project): ?>
-          <li class="main-navigation__list-item">
-            <a class="main-navigation__list-item-link" href="#"><?= safe_html($project["name"]) ?></a>
-            <span class="main-navigation__list-item-count">
-              0
-            </span>
+        $project_id = isset($_GET["project_id"]) ? $_GET["project_id"] : 0;
+        foreach ($user_projects as $project): ?>
+          <li class="main-navigation__list-item
+                    <?php if ($project["id"] === $project_id): ?>
+                        main-navigation__list-item--active
+                    <?php endif; ?>">
+            <a class="main-navigation__list-item-link"
+              href="/?project_id=<?= $project['id'] ?>"><?= htmlspecialchars($project['title']) ?></a>
+            <span class="main-navigation__list-item-count"><?= tasks_count($all_user_tasks, $project['id']) ?></span>
           </li>
         <?php endforeach; ?>
       </ul>
