@@ -33,7 +33,7 @@ function check_auth($title)
 
 function get_user_projects($connection, $user_id)
 {
-  $sql = "SELECT * FROM projects WHERE author_id='$user_id'";
+  $sql = "SELECT * FROM projects WHERE author_id=$user_id";
   $result = mysqli_query($connection, $sql);
 
   return mysqli_fetch_all($result, MYSQLI_ASSOC);
