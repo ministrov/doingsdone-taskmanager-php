@@ -35,7 +35,7 @@
 
             <?php $class_name = isset($valid_errors["title"]) ? "form__input--error" : ""; ?>
             <input class="form__input <?= $class_name; ?>" type="text" name="title" id="name"
-                   value="<?= getPostVal("title"); ?>" placeholder="Введите название">
+                value="<?= getPostVal("title"); ?>" placeholder="Введите название">
 
             <?php if (isset($valid_errors["title"])): ?>
                 <p class="form__message"><?= $valid_errors["title"]; ?></p>
@@ -54,9 +54,8 @@
                     <?php if (isset($item["id"])): ?>
                         <option value="<?= $item["id"]; ?>"
                             <?php if ($item["id"] == getPostVal("project_id")): ?>
-                                selected
-                            <?php endif; ?>
-                        >
+                            selected
+                            <?php endif; ?>>
                             <?= $item["name"]; ?>
                         </option>
                     <?php endif; ?>
@@ -74,7 +73,7 @@
 
             <?php $class_name = isset($valid_errors["deadline"]) ? "form__input--error" : ""; ?>
             <input class="form__input form__input--date <?= $class_name; ?>" type="text" name="deadline" id="date"
-                   value="<?= getPostVal("deadline"); ?>" placeholder="Введите дату в формате ГГГГ-ММ-ДД">
+                value="<?= getPostVal("deadline"); ?>" placeholder="Введите дату в формате ГГГГ-ММ-ДД">
 
             <?php if (isset($valid_errors["deadline"])): ?>
                 <p class="form__message"><?= $valid_errors["deadline"]; ?></p>

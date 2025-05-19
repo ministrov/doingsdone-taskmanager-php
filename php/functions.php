@@ -41,8 +41,13 @@ function mysqlConnect(array $db_config): array
         $link = mysqli_init();
         // Устанавливает преобразование целочисленных значений и чисел с плавающей запятой из столбцов таблицы в PHP числа
         mysqli_options($link, MYSQLI_OPT_INT_AND_FLOAT_NATIVE, 1);
-        mysqli_real_connect($link, $db_config["host"], $db_config["user"], $db_config["password"],
-            $db_config["database"]);
+        mysqli_real_connect(
+            $link,
+            $db_config["host"],
+            $db_config["user"],
+            $db_config["password"],
+            $db_config["database"]
+        );
 
         // Кодировка при работе с MySQL
         mysqli_set_charset($link, "utf8");

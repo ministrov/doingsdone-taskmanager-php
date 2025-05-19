@@ -60,7 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $valid_rules = [
         "title" => function ($value) use ($config) {
-            return validateLength($value,
+            return validateLength(
+                $value,
                 $config["addLengthRules"]["title"]["min"],
                 $config["addLengthRules"]["title"]["max"]
             );

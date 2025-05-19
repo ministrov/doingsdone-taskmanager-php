@@ -13,7 +13,7 @@
 
             <?php $class_name = isset($valid_errors["email"]) ? "form__input--error" : ""; ?>
             <input class="form__input <?= $class_name; ?>" type="text" name="email" id="email"
-                   value="<?= getPostVal("email"); ?>" placeholder="Введите e-mail">
+                value="<?= getPostVal("email"); ?>" placeholder="Введите e-mail">
 
             <?php if (isset($valid_errors["email"])): ?>
                 <p class="form__message"><?= $valid_errors["email"]; ?></p>
@@ -26,7 +26,7 @@
 
             <?php $class_name = isset($valid_errors["password"]) ? "form__input--error" : ""; ?>
             <input class="form__input <?= $class_name; ?>" type="password" name="password" id="password"
-                   value="" placeholder="Введите пароль">
+                value="" placeholder="Введите пароль">
 
             <?php if (isset($valid_errors["password"])): ?>
                 <p class="form__message"><?= $valid_errors["password"]; ?></p>
@@ -39,7 +39,7 @@
 
             <?php $class_name = isset($valid_errors["name"]) ? "form__input--error" : ""; ?>
             <input class="form__input <?= $class_name; ?>" type="text" name="name" id="name"
-                   value="<?= getPostVal("name"); ?>" placeholder="Введите имя">
+                value="<?= getPostVal("name"); ?>" placeholder="Введите имя">
 
             <?php if (isset($valid_errors["name"])): ?>
                 <p class="form__message"><?= $valid_errors["name"]; ?></p>

@@ -35,7 +35,7 @@
 
             <?php $class_name = isset($valid_errors["name"]) ? "form__input--error" : ""; ?>
             <input class="form__input <?= $class_name; ?>" type="text" name="name" id="project_name"
-                   value="<?= getPostVal("name"); ?>" placeholder="Введите название проекта">
+                value="<?= getPostVal("name"); ?>" placeholder="Введите название проекта">
 
             <?php if (isset($valid_errors["name"])): ?>
                 <p class="form__message"><?= $valid_errors["name"]; ?></p>

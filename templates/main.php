@@ -32,7 +32,7 @@
     <form class="search-form" action="<?= $ROOT_DIRECTORY; ?>" method="get" autocomplete="off">
         <label>
             <input class="search-form__input" type="text" name="query" value="<?= htmlspecialchars(getGetVal("query")); ?>"
-                   placeholder="Поиск по задачам">
+                placeholder="Поиск по задачам">
         </label>
         <input class="search-form__submit" type="submit" name="" value="Искать">
     </form>
@@ -43,17 +43,17 @@
                 <li class="search-result__item">
 
                     <?php if (isset($item["project_id"])): ?>
-                    <a class="search-result__link" href="?project_id=<?= $item["project_id"]; ?>">
+                        <a class="search-result__link" href="?project_id=<?= $item["project_id"]; ?>">
                         <?php endif; ?>
                         <?php if (isset($item["title"])): ?>
                             <?= htmlspecialchars($item["title"]); ?>
                         <?php endif; ?>
-                    </a>
-                    <span class="search-result__text">
-                        <?php if (isset($item["project"])): ?>
-                            <?= htmlspecialchars($item["project"]); ?>
-                        <?php endif; ?>
-                    </span>
+                        </a>
+                        <span class="search-result__text">
+                            <?php if (isset($item["project"])): ?>
+                                <?= htmlspecialchars($item["project"]); ?>
+                            <?php endif; ?>
+                        </span>
                 </li>
             <?php endforeach; ?>
         </ul>
@@ -80,9 +80,8 @@
             <a href="<?= $url . $url_link ?>">
                 <input class="checkbox__input visually-hidden" type="checkbox"
                     <?php if ($show_complete_tasks == 1): ?>
-                        checked
-                    <?php endif; ?>
-                >
+                    checked
+                    <?php endif; ?>>
                 <span class="checkbox__text">Показывать выполненные</span>
             </a>
         </label>
@@ -102,19 +101,18 @@
                 <td class="task__select">
                     <label class="checkbox task__checkbox">
                         <?php if (isset($item["id"])): ?>
-                        <a href="?task_id=<?= $item["id"]; ?><?= $tabs; ?><?= $show_complete_tasks_url; ?>">
+                            <a href="?task_id=<?= $item["id"]; ?><?= $tabs; ?><?= $show_complete_tasks_url; ?>">
                             <?php endif; ?>
                             <input class="checkbox__input visually-hidden" type="checkbox"
                                 <?php if (isset($item["status"]) && $item["status"]): ?>
-                                    checked
-                                <?php endif; ?>
-                            >
+                                checked
+                                <?php endif; ?>>
                             <span class="checkbox__text">
                                 <?php if (isset($item["title"])): ?>
                                     <?= htmlspecialchars($item["title"]); ?>
                                 <?php endif; ?>
                             </span>
-                        </a>
+                            </a>
                     </label>
                 </td>
 

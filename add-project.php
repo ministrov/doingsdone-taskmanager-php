@@ -55,7 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $valid_errors["name"] = "Это поле должно быть заполнено";
     }
 
-    $validate_length = validateLength($project["name"],
+    $validate_length = validateLength(
+        $project["name"],
         $config["addLengthRules"]["project"]["min"],
         $config["addLengthRules"]["project"]["max"]
     );

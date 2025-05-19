@@ -27,13 +27,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             return validateEmail($value);
         },
         "password" => function ($value) use ($config) {
-            return validateLength($value,
+            return validateLength(
+                $value,
                 $config["registerLengthRules"]["password"]["min"],
                 $config["registerLengthRules"]["password"]["max"]
             );
         },
         "name" => function ($value) use ($config) {
-            return validateLength($value,
+            return validateLength(
+                $value,
                 $config["registerLengthRules"]["name"]["min"],
                 $config["registerLengthRules"]["name"]["max"]
             );
