@@ -1,0 +1,10 @@
+{
+    "name": "admin/doingsdone.local",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Anton Zhilin"
+        }
+    ],
+    "require": {}
+}
