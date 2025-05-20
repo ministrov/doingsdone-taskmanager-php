@@ -1,10 +1,13 @@
 {
-    "name": "admin/doingsdone.local",
-    "type": "project",
-    "authors": [
-        {
-            "name": "Anton Zhilin"
-        }
-    ],
-    "require": {}
+  "name": "admin/doingsdone.local",
+  "description": "Web application for easy to-do list management",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Anton Zhilin"
+    }
+  ],
+  "require": {
+    "swiftmailer/swiftmailer": "^6.3"
+  }
 }

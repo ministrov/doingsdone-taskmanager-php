@@ -13,7 +13,11 @@ $link = mysqlConnect($db_config);
 // Проверяем наличие ошибок подключения к MySQL и выводим их в шаблоне
 ifMysqlConnectError($link, $config, $title, $template_path, $error_caption, $error_default_message);
 
-$link = $link["link"];
+$link = $link["link"] ?? null;
+
+if ($link) {
+    die("Ошибка подключения к БД");
+}
 
 // ПОЛУЧАЕМ из полей формы необходимые данные от пользователя, ПРОВЕРЯЕМ их и СОХРАНЯЕМ в БД
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

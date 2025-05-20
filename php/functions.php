@@ -1,5 +1,9 @@
 <?php
 
+// use Swift_Mailer;
+// use Swift_SmtpTransport;
+// use Swift_Message;
+
 // $ROOT_DIRECTORY = "/doingsdone";
 $ROOT_DIRECTORY = "";
 
@@ -701,38 +705,38 @@ function ifErrorResultSearch(string $template_path, string $message_caption, str
  * @param string $message_content Сообщение с HTML форматированием
  * @return array $result E-mail рассылка
  */
-// function mailSendMessage(array $mail_config, array $recipient, string $message_content): array
-// {
-//     try {
-//         // Конфигурация транспорта, отвечает за способ отправки. Содержит параметры доступа к SMTP-серверу
-//         $transport = (new Swift_SmtpTransport($mail_config["domain"], $mail_config["port"]))
-//             ->setUsername($mail_config["userName"])
-//             ->setPassword($mail_config["password"])
-//             ->setEncryption($mail_config["encryption"]);
+function mailSendMessage(array $mail_config, array $recipient, string $message_content): array
+{
+    try {
+        // Конфигурация транспорта, отвечает за способ отправки. Содержит параметры доступа к SMTP-серверу
+        $transport = (new Swift_SmtpTransport($mail_config["domain"], $mail_config["port"]))
+            ->setUsername($mail_config["userName"])
+            ->setPassword($mail_config["password"])
+            ->setEncryption($mail_config["encryption"]);
 
-//         // Объект библиотеки SwiftMailer, отвечает за отправку сообщений. Передаём туда созданный объект с SMTP-сервером
-//         $mailer = new Swift_Mailer($transport);
+        // Объект библиотеки SwiftMailer, отвечает за отправку сообщений. Передаём туда созданный объект с SMTP-сервером
+        $mailer = new Swift_Mailer($transport);
 
-//         // Формирование сообщения. Содержит параметры сообщения: текст, тему, отправителя и получателя
-//         $message = (new Swift_Message($mail_config["subject"]))
-//             ->setFrom([$mail_config["userName"] => $mail_config["userCaption"]])
-//             ->setBcc($recipient)
-//             ->setBody($message_content, "text/html");
+        // Формирование сообщения. Содержит параметры сообщения: текст, тему, отправителя и получателя
+        $message = (new Swift_Message($mail_config["subject"]))
+            ->setFrom([$mail_config["userName"] => $mail_config["userCaption"]])
+            ->setBcc($recipient)
+            ->setBody($message_content, "text/html");
 
-//         // Отправка сообщения
-//         $result = [
-//             "success" => 1,
-//             "mailerMessage" => $mailer->send($message)
-//         ];
-//     } catch (Exception $ex) {
-//         $result = [
-//             "success" => 0,
-//             "errorMessage" => implode(" | ", [$ex->getLine(), $ex->getMessage(), $ex->getCode()])
-//         ];
-//     }
+        // Отправка сообщения
+        $result = [
+            "success" => 1,
+            "mailerMessage" => $mailer->send($message)
+        ];
+    } catch (Exception $ex) {
+        $result = [
+            "success" => 0,
+            "errorMessage" => implode(" | ", [$ex->getLine(), $ex->getMessage(), $ex->getCode()])
+        ];
+    }
 
-//     return $result;
-// }
+    return $result;
+}
 
 /**
  * Получает значение параметра запроса без обращения к $_POST
