@@ -4,6 +4,10 @@ global $ROOT_DIRECTORY, $config, $template_path, $db_config, $error_caption, $er
 
 $title = "Дела в порядке | Регистрация аккаунта";
 
+$valid_errors = [];
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 // Если сайт находится в неактивном состоянии, выходим на страницу с сообщением о техническом обслуживании
 ifSiteDisabled($config, $template_path, $title);
 
@@ -15,7 +19,7 @@ ifMysqlConnectError($link, $config, $title, $template_path, $error_caption, $err
 
 $link = $link["link"] ?? null;
 
-if ($link) {
+if (!$link) {
     die("Ошибка подключения к БД");
 }
 
