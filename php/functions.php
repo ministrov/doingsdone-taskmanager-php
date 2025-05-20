@@ -751,7 +751,7 @@ function getPostVal($name)
  * @param mixed $name Название параметра, значение которого получаем
  * @return mixed
  */
-function getGetVal($name)
+function getVal($name)
 {
     return filter_input(INPUT_GET, $name, FILTER_SANITIZE_SPECIAL_CHARS);
 }
