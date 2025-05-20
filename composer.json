@@ -1,11 +1,13 @@
 {
-    "name": "domains/doingsdone",
-    "description": "Web application for easy to-do list management",
-    "type": "project",
-
-    "require": {
-        "ext-mysqli": "*",
-        "ext-fileinfo": "*",
-        "swiftmailer/swiftmailer": "^6.2"
+  "name": "admin/doingsdone.local",
+  "description": "Web application for easy to-do list management",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Anton Zhilin"
     }
+  ],
+  "require": {
+    "swiftmailer/swiftmailer": "^6.3"
+  }
 }

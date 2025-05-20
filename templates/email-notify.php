@@ -24,9 +24,9 @@
                         <ul style="margin:0;padding-left:40px;font:400 16px/1.5 'helvetica', 'arial', sans-serif;line-height:1.4">
                             <?php foreach ($tasks_user as $item): ?>
                                 <li><?= htmlspecialchars($item["title"]); ?> на <?= htmlspecialchars(date(
-                                                                                    "d.m.Y",
-                                                                                    strtotime($item["deadline"])
-                                                                                )); ?>.
+                                    "d.m.Y",
+                                    strtotime($item["deadline"])
+                                )); ?>.
                                 </li>
                             <?php endforeach; ?>
                         </ul>

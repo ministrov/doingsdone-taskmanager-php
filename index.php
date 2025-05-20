@@ -26,6 +26,7 @@ $tasks = [];
 
 // Список проектов у текущего пользователя
 $projects = dbGetProjects($link, $user_id);
+
 if ($projects["success"] === 0) {
   $projects["errorMessage"] = $error_default_message;
   $page_content = showTemplateWithError($template_path, $error_caption, $projects["errorMessage"]);

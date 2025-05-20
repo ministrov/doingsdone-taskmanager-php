@@ -31,7 +31,7 @@
     <!-- Поиск по задачам -->
     <form class="search-form" action="<?= $ROOT_DIRECTORY; ?>" method="get" autocomplete="off">
         <label>
-            <input class="search-form__input" type="text" name="query" value="<?= htmlspecialchars(getGetVal("query")); ?>"
+            <input class="search-form__input" type="text" name="query" value="<?= htmlspecialchars(getVal("query")); ?>"
                 placeholder="Поиск по задачам">
         </label>
         <input class="search-form__submit" type="submit" name="" value="Искать">
